@@ -41,13 +41,9 @@ export function iniciaAbertura() {
   }
   requestAnimationFrame(passo)
 
+  // terminada a abertura o SVG da escrita sai da página (não fica pesando na rolagem)
   const resta = Math.max(0, fim + 2.4 - agora())
-  setTimeout(() => {
-    try {
-      sessionStorage.setItem('gb-abertura', '1')
-    } catch {}
-    html.classList.add('abertura-feita')
-  }, resta * 1000)
+  setTimeout(() => html.classList.add('abertura-feita'), resta * 1000)
   // segundos até a luz acender (quando a escrita termina): depois disso o React pode assumir
   return Math.max(0, fim + 0.25 - agora())
 }

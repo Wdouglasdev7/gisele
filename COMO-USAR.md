@@ -38,8 +38,9 @@ trechos curtos; cada um anima o próprio traço dentro de uma máscara SVG, na o
 (G, haste, B, laço, voluta). É só CSS: começa na primeira pintura, antes do JavaScript.
 O globo da luminária tem um recorte escurecido por cima, por isso a escrita passa "por trás" dele.
 O React só assume a página quando a escrita termina (ou no primeiro toque/rolagem), para não disputar
-o processador com a animação. Repete só na primeira visita da sessão; link direto (`#...`) e
-"reduzir movimento" pulam a abertura.
+o processador com a animação. Passa toda vez que o site abre, inclusive no F5 (recarregar volta
+para o topo). Pulam a abertura: link direto de peça (`#p/...`) ou de seção (`#catalogo`) e
+"reduzir movimento" no aparelho. A regra fica no script do `<head>` do `index.html`.
 
 Refazer, de dentro de `site/` (precisa de `pip install potracer` para o primeiro passo):
 
