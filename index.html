@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Gisele Beatriz Acessórios · Semijoias e prata 925 em Anápolis</title>
+    <meta name="description" content="Há mais de 14 anos vendendo acessórios de qualidade em Anápolis. Semijoias com garantia de 1 ano e peças em prata 925. Veja o catálogo e peça pelo WhatsApp. Av. Tiradentes, 481, Centro." />
+    <meta name="theme-color" content="#1d120d" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Gisele Beatriz Acessórios" />
+    <meta property="og:description" content="Semijoias e prata 925 em Anápolis. Veja o catálogo e peça pelo WhatsApp." />
+    <meta property="og:image" content="/img/compartilhar.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link rel="icon" href="/img/icone.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/icone-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/icone-180.png" />
+
+    <!-- a foto da abertura e as fontes da primeira tela chegam junto com o HTML -->
+    <link rel="preload" as="image" type="image/avif" fetchpriority="high"
+      imagesrcset="/img/heroi-640.avif 640w, /img/heroi-960.avif 960w, /img/heroi-1280.avif 1280w, /img/heroi-1672.avif 1672w"
+      imagesizes="100vw" />
+    <link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jost.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Abertura (monograma escrito sobre a placa) só na primeira visita da sessão.
+         Volta pelo botão, link direto para uma peça ou "reduzir movimento": vai direto ao ponto.
+         Se o script do site não rodar em 6,5 s, as seções aparecem sem efeito de entrada. -->
+    <script>
+      ;(function (h) {
+        h.classList.add('js')
+        var pular = false
+        try { pular = sessionStorage.getItem('gb-abertura') === '1' } catch (e) {}
+        if (pular || location.hash.length > 1 || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+          h.classList.add('sem-abertura')
+        }
+        setTimeout(function () {
+          if (!h.classList.contains('pronto')) h.classList.add('sem-efeitos')
+        }, 6500)
+      })(document.documentElement)
+    </script>
+  </head>
+  <body>
+    <div id="raiz"><!--app--></div>
+    <noscript>
+      <p style="padding:16px 18px;margin:0;background:#fbefe9;font-family:system-ui,sans-serif">
+        Para escolher as peças o site precisa de JavaScript. Você ainda pode chamar a loja no WhatsApp: (62) 99135-0635.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

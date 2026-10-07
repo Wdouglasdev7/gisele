@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Captura do mapa</title>
+<!--
+  Gera as imagens da seção "Venha conhecer a loja". O Google só desenha o mapa dentro de um
+  iframe, então esta página põe o embed na janela inteira e o Chrome headless fotografa.
+  Servir por http (aberta como arquivo o print sai preto) e rodar o Chrome com
+  --disable-features=IsolateOrigins,site-per-process --disable-site-isolation-trials
+  Uso: captura-mapa.html?t=m&z=17   (t=m mapa, t=k satélite; z = zoom)
+-->
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #fff; }
+  iframe { display: block; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+<script>
+  const q = new URLSearchParams(location.search);
+  const lugar = 'Gisele Beatriz Acessórios, Av. Tiradentes, 481 - Centro, Anápolis - GO, 75043-045';
+  const f = document.createElement('iframe');
+  f.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(lugar) +
+    '&hl=pt-BR&z=' + (q.get('z') || 17) + (q.get('t') === 'k' ? '&t=k' : '') + '&output=embed';
+  document.body.appendChild(f);
+</script>
+</body>
+</html>
